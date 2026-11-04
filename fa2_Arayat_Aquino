@@ -1,0 +1,83 @@
+class Patient:
+    def __init__(self, __name, __bill_amount):
+        self.__name = __name
+        self.__bill_amount = __bill_amount
+
+    def get_name(self):
+        return "Patient name: " + self.__name
+
+    def get_bill_amount(self):
+        return "Original bill: " + str(float(self.__bill_amount))
+
+    def set_name(self, newname):
+        self.__name = newname
+
+    def set_bill_amount(self, newbill):
+        if newbill < 0:
+            print("Bill amount must be positive")
+        else:
+            self.__bill_amount = newbill
+
+    def calculate_bill(self):
+        return "Final Bill: ₱" + str(float(self.__bill_amount))
+
+
+class SeniorPatient(Patient):
+    def __init__(self, __name, __bill_amount):
+        super().__init__(__name,__bill_amount)
+
+    def get_name(self):
+        return super().get_name()
+
+    def get_bill_amount(self):
+        return super().get_bill_amount()
+
+    def set_name(self, newname):
+        super().set_name()
+
+    def set_bill_amount(self):
+        super().set_bill_amount()
+
+
+    def calculate_bill(self):
+        return "Final bill: ₱" + (str(self._Patient__bill_amount*0.80))
+
+class PhilHealthPatient(Patient):
+    def __init__(self, __name, __bill_amount):
+        super().__init__(__name, __bill_amount)
+
+    def get_name(self):
+        return super().get_name()
+
+    def get_bill_amount(self):
+        return super().get_bill_amount()
+
+    def set_name(self, newname):
+        super().set_name()
+
+    def set_bill_amount(self):
+        super().set_bill_amount()
+
+
+    def calculate_bill(self):
+        return "Final bill: ₱" + (str(self._Patient__bill_amount*0.85))
+
+
+print("Hospital Billing System")
+print("-----------------------")
+
+patient = Patient("Juan Dela Cruz", 15000)
+seniorpatient = SeniorPatient("Maria Santos", 15000)
+philhealthpatient = PhilHealthPatient("Pedro Reyes", 15000)
+
+print(patient.get_name())
+print(patient.get_bill_amount())
+print(patient.calculate_bill())
+print(" ")
+print(seniorpatient.get_name())
+print(seniorpatient.get_bill_amount())
+print(seniorpatient.calculate_bill())
+print(" ")
+print(philhealthpatient.get_name())
+print(philhealthpatient.get_bill_amount())
+print(philhealthpatient.calculate_bill())
